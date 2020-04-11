@@ -53,13 +53,13 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $job)
+    public function show($id)
     {
         $article = Employee::find($id); //id comes from route
         if ($article) {
             return new EmployeeResource($article);
         }
-        return "Employee Not found" . $job . $id; // temporary error
+        return "Employee Not found" . $id; // temporary error
     }
 
 

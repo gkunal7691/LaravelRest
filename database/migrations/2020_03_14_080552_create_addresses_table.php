@@ -18,6 +18,8 @@ class CreateAddressesTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->timestamps();
+            // $table->biginteger('emp_id')->unsigned();
+            // $table->foreign('emp_id')->references('id')->on('employee');
         });
     }
 
