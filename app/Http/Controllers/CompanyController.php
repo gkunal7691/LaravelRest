@@ -33,9 +33,18 @@ class CompanyController extends Controller
         $company->name = 'Softobotics_123';
         $company->save();
 
-        $customer = new Customer;
-        $customer->name = 'Gautam_New';
-        $company->customers()->save($customer);
+        // $customer = new Customer;
+        // $customer->name = 'Gautam_New';
+
+        $cust = new Customer;
+        $cust->name = 'Gautam New';
+        // $company->customers()->save($customer);
+        $company->customers()->save($cust);
+        if ($company->save()) {
+            return $company;
+        } else {
+            return "Not added";
+        }
     }
 
     public function show($id)
@@ -50,15 +59,29 @@ class CompanyController extends Controller
         } // temporary error
     }
 
-    public function update(Request $request, $id)
+    public function update($id)
     {
+        $compnay = Company::find($id);
+        $cust = Customer::find($id);
+
+
+        if ($cust && $compnay) {
+            $compnay->name = 'Test';
+            $compnay->phone = '1231213';
+            $compnay->customers()->name = 'NewUpdates';
+            $compnay->customers()->update();
+        }
+
         $compnay = Company::find($id);
 
         $compnay->name = 'Test';
         $compnay->phone = '123123213123';
-        // $compnay->customers->id = $request->$id;
-        $compnay->customers->name = 'Gautam_new';
+        $compnay->customers->name = 'NewUpdates';
         $compnay->save();
-        return new CompanyResource($compnay);
+        if ($compnay) {
+            return $compnay;
+        } else {
+            return "Not added";
+        }
     }
 }

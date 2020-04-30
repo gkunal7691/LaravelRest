@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Resources\EmployeeResource;
 use App\Employee;
+use App\Cabs;
 use App\Http\Requests;
 
 class EmployeeController extends Controller
@@ -46,6 +47,31 @@ class EmployeeController extends Controller
         $emp->save();
         return new EmployeeResource($emp);
     }
+
+    public function manyCreate()
+    {
+        $emp = new Employee;
+        $emp->name = 'God of War qwe';
+        $emp->save();
+        $cab = new Cabs;
+        $cab->name = 'driver';
+        $cab->type = 'car';
+        $emp->cabs()->save($cab);
+
+        return $emp;
+    }
+
+    public function manyShow($id)
+    {
+        $emp = Employee::find($id);
+        $emp->cabs;
+        if ($emp) {
+            return new EmployeeResource($emp);
+        } else {
+            return "null";
+        }
+    }
+
 
     /**
      * Display the specified resource.

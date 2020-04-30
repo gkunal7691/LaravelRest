@@ -12,4 +12,9 @@ class Employee extends Model
     {
         return $this->hasOne(Task::class);
     }
+
+    public function cabs()
+    {
+        return $this->belongsToMany(Cabs::class);
+    }
 }
