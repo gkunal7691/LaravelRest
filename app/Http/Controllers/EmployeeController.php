@@ -56,7 +56,11 @@ class EmployeeController extends Controller
         $cab = new Cabs;
         $cab->name = 'TESTING';
         $cab->type = 'CARS';
+        $cab1 = new Cabs;
+        $cab1->name = 'TESTING';
+        $cab1->type = 'CARS';
         $emp->cabs()->save($cab);
+        $emp->cabs()->save($cab1);
 
         return $emp;
     }

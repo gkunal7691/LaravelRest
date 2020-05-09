@@ -24,7 +24,7 @@ Route::get('user/{id}', 'UserController@index');
 Route::get('employee/{id}', 'EmployeeController@show');
 Route::post('user', 'UserController@create');
 Route::post('empCabs', 'EmployeeController@manyCreate');
-Route::get('empCabs/{id}', 'CabsController@show');
+Route::get('empCabs/{id}', 'EmployeeController@manyShow');
 Route::post('customers', 'CustomersController@create');
 Route::post('company', 'CompanyController@create');
 Route::put('company/{id}', 'CompanyController@update');
