@@ -51,11 +51,11 @@ class EmployeeController extends Controller
     public function manyCreate()
     {
         $emp = new Employee;
-        $emp->name = 'God of War qwe';
+        $emp->name = 'TESTING MANAY TTO MANY';
         $emp->save();
         $cab = new Cabs;
-        $cab->name = 'driver';
-        $cab->type = 'car';
+        $cab->name = 'TESTING';
+        $cab->type = 'CARS';
         $emp->cabs()->save($cab);
 
         return $emp;

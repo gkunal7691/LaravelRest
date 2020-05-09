@@ -18,4 +18,15 @@ class CabsController extends Controller
 
         return $emp;
     }
+
+    public function show($id)
+    {
+        $cab = Cabs::find($id);
+        $cab->employees;
+        if ($cab) {
+            return $cab;
+        } else {
+            return "null";
+        }
+    }
 }

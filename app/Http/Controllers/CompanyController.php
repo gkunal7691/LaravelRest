@@ -33,12 +33,12 @@ class CompanyController extends Controller
         $company->name = 'Softobotics_123';
         $company->save();
 
-        // $customer = new Customer;
-        // $customer->name = 'Gautam_New';
+        $customer = new Customer;
+        $customer->name = 'Gautam_New';
 
         $cust = new Customer;
         $cust->name = 'Gautam New';
-        // $company->customers()->save($customer);
+        $company->customers()->save($customer);
         $company->customers()->save($cust);
         if ($company->save()) {
             return $company;

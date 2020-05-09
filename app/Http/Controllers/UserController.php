@@ -14,10 +14,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         // get user and mobile data from User model
-        $user = User::find(1);
+        $user = User::find($id);
         // // var_dump($user->name);
         $user->tasks;
 
